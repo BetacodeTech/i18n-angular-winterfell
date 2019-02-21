@@ -129,6 +129,41 @@
           }
         }
       }
+    },
+    "i18n-angular-winterfell-lib": {
+      "root": "projects/i18n-angular-winterfell-lib",
+      "sourceRoot": "projects/i18n-angular-winterfell-lib/src",
+      "projectType": "library",
+      "prefix": "i18nwl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/i18n-angular-winterfell-lib/tsconfig.lib.json",
+            "project": "projects/i18n-angular-winterfell-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/i18n-angular-winterfell-lib/src/test.ts",
+            "tsConfig": "projects/i18n-angular-winterfell-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/i18n-angular-winterfell-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/i18n-angular-winterfell-lib/tsconfig.lib.json",
+              "projects/i18n-angular-winterfell-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "i18n-angular-winterfell"

@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "i18n-angular-winterfell-lib": [
+        "dist/i18n-angular-winterfell-lib"
+      ],
+      "i18n-angular-winterfell-lib/*": [
+        "dist/i18n-angular-winterfell-lib/*"
+      ]
+    }
   }
 }
