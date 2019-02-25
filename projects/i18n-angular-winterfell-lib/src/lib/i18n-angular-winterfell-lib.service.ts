@@ -9,6 +9,8 @@ export class I18nAngularWinterfellLibService {
 
   token: '';
   site: '';
+  page: '';
+  language: '';
   content_list = [];
   loadingState = new Subject();
 
@@ -18,6 +20,16 @@ export class I18nAngularWinterfellLibService {
   setConfigurations(key, site_id) {
     this.token = key;
     this.site = site_id;
+  }
+
+  setLanguage(lang) {
+    this.language = lang;
+    this.getContentList();
+  }
+
+  setPage(page) {
+    this.page = page;
+    this.getContentList();
   }
 
   getAuthHeader() {
@@ -30,10 +42,10 @@ export class I18nAngularWinterfellLibService {
     return header;
   }
 
-  async getContentList(page, language) {
+  async getContentList() {
     const headers = this.getAuthHeader();
     let loading = false;
-    await this.http.get('http://localhost:8080/api/auth/content/' + this.site + '/' + page + '/' + language, {headers}).subscribe(res => {
+    await this.http.get('http://localhost:8080/api/auth/content/' + this.site + '/' + this.page + '/' + this.language, {headers}).subscribe(res => {
       loading = true;
       this.loadingState.next(loading);
       if (res['status'] === 'success') {
