@@ -45,7 +45,7 @@ export class I18nAngularWinterfellLibService {
   async getContentList() {
     const headers = this.getAuthHeader();
     let loading = false;
-    await this.http.get('http://localhost:8080/api/auth/content/' + this.site + '/' + this.page + '/' + this.language, {headers}).subscribe(res => {
+    await this.http.get('https://winterfell.api.betacode.tech/api/auth/content/' + this.site + '/' + this.page + '/' + this.language, {headers}).subscribe(res => {
       loading = true;
       this.loadingState.next(loading);
       if (res['status'] === 'success') {
